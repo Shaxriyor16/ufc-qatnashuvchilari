@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UFC Ariza — Submit Your Application</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#ff3b30;--muted:#9aa4b2;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background-color:var(--bg); color:#e6eef6; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px}
+    .wrap{width:100%;max-width:980px}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .logo{width:64px;height:64px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+    .logo img{width:100%;height:100%;object-fit:cover;}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:4px 0 0;color:var(--muted);font-size:13px}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .card{background-color:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+    form .row{display:flex;gap:12px}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input[type=text], input[type=email], input[type=number], select, textarea{width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:var(--card);color:inherit;font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+    .small{font-size:12px;color:var(--muted)}
+
+    .submit-row{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+    button.primary{background:linear-gradient(90deg,var(--accent),#ff6b5f);border:none;padding:10px 14px;border-radius:10px;color:#071021;font-weight:700;cursor:pointer}
+    .muted-box{background:var(--glass);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);font-size:13px;color:var(--muted)}
+
+    .info h3{margin:0 0 8px 0;font-size:15px}
+    .info ul{padding-left:18px;margin:6px 0;color:var(--muted)}
+
+    .file-input{display:flex;gap:8px;align-items:center}
+    .file-input input[type=file]{flex:1}
+
+    .center{display:flex;align-items:center;gap:8px}
+    .tag{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-size:12px;color:var(--muted)}
+
+    footer{margin-top:14px;color:var(--muted);font-size:12px;text-align:center}
+
+    .checkmark {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #4BB543;
+      position: relative;
+      animation: pop 0.5s ease-out;
+      margin-right: 8px;
+    }
+    .checkmark::after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 2px;
+      width: 6px;
+      height: 12px;
+      border: solid #4BB543;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    @keyframes pop {
+      0% {transform: scale(0);}
+      70% {transform: scale(1.2);}
+      100% {transform: scale(1);}
+    }
+
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr;}
+      .card{padding:14px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo"><img src="UFC-Logo.png" alt="UFC Logo"></div>
+      <div>
+        <h1>UFC Ariza — Yuborish</h1>
+        <p class="lead">Musobaqaga / tekshiruvga ariza yuborish uchun formani to‘ldiring. Barcha maydonlar to‘g‘ri va aniq to‘ldirilgan bo‘lishi kerak.</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <form id="appForm" onsubmit="return handleSubmit(event)">
+          <div style="display:flex;gap:12px;margin-bottom:12px">
+            <div style="flex:1">
+              <label for="fullname">Ism va familiya</label>
+              <input id="fullname" name="fullname" type="text" placeholder="To'liq ism" required />
+            </div>
+            <div style="width:100px">
+              <label for="age">Yosh</label>
+              <input id="age" name="age" type="number" min="16" max="60" placeholder="yosh" required />
+            </div>
+          </div>
+
+          <div class="row" style="margin-bottom:12px">
+            <div style="flex:1">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="email@domain.com" required />
+            </div>
+            <div style="width:140px">
+              <label for="phone">Telefon</label>
+              <input id="phone" name="phone" type="text" placeholder="+998901112233" required />
+            </div>
+          </div>
+
+          <div style="margin-bottom:12px">
+            <label for="weight">Vazn toifasi (kg)</label>
+            <input id="weight" name="weight" type="number" placeholder="Vaznni son bilan kiriting" required />
+          </div>
+
+          <label for="experience">Professional / amaliy tajriba (qisqacha)</label>
+          <textarea id="experience" name="experience" placeholder="Ringdagi natijalar, janglar, tajriba va sertifikatlar haqida yozing" required></textarea>
+
+          <div style="display:flex;gap:12px;margin-top:10px;align-items:center">
+            <div style="flex:1">
+              <label for="video">Jang videosi (yoki havola)</label>
+              <div class="file-input">
+                <input id="video" name="video" type="url" placeholder="YouTube yoki Google Drive linki" />
+              </div>
+            </div>
+            <div style="width:160px">
+              <label for="record">Raqamli rekord</label>
+              <input id="record" name="record" type="text" placeholder="W-L-D (masalan 10-2-0)" />
+            </div>
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+            <input id="consent" name="consent" type="checkbox" required />
+            <label for="consent" class="small">Men barcha qoidalar bilan tanishdim va haqiqatni tasdiqlayman.</label>
+          </div>
+
+          <div class="submit-row">
+            <div class="small">Barcha ma'lumotlar maxfiy saqlanadi.</div>
+            <div>
+              <button class="primary" type="submit">Arizani yuborish</button>
+            </div>
+          </div>
+
+          <div id="result" style="margin-top:12px;display:flex;align-items:center"></div>
+        </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+          function handleSubmit(e){
+            e.preventDefault();
+            const form = document.getElementById('appForm');
+            const data = new FormData(form);
+            const obj = {};
+            for(const [k,v] of data.entries()) obj[k]=v;
+            if(!obj.fullname || !obj.email || !obj.consent){
+              showResult('Iltimos barcha majburiy maydonlarni to\'ldiring.', true);
+              return false;
+            }
+
+            // Telegram bot token va chat ID (guruhga yuborish uchun)
+            const botToken = '8280747411:AAFPTkr5XHiZoTYwWa4W9CpC9lumsC7hQdo';
+            const chatId = '7337873747'; // Guruh chat ID’si
+            const message = `Yangi ariza:\nIsm: ${obj.fullname}\nEmail: ${obj.email}\nTelefon: ${obj.phone}\nVazn: ${obj.weight}\nTajriba: ${obj.experience}\nVideo: ${obj.video}\nRekord: ${obj.record}`;
+
+            axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+              chat_id: chatId,
+              text: message
+            }).then(()=>{
+              showResult('<span class="checkmark"></span>Ariza qabul qilindi. Admin bilan tez orada bog\'lanamiz.', false);
+              form.reset();
+            }).catch(()=>{
+              showResult('Xatolik yuz berdi, qayta urinib ko\'ring.', true);
+            });
+
+            return false;
+          }
+
+          function showResult(msg, isError){
+            const r = document.getElementById('result');
+            r.innerHTML = '<div style="padding:10px;border-radius:8px;background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.02);color:#e6eef6;font-weight:600;display:flex;align-items:center;">'+msg+'</div>';
+          }
+        </script>
+      </div>
+
+      <aside class="card info">
+        <h3>Qoidalar va talablar</h3>
+        <ul>
+          <li>Minimal yosh: 18 (yoki turnir talablari bo'yicha).</li>
+          <li>To'liq tibbiy ma'ruza va ruxsatnomalar talab qilinishi mumkin.</li>
+          <li>Foydasiz, soxta yoki spam arizalar rad etiladi.</li>
+        </ul>
+
+        <div style="margin-top:12px">
+          <h3>Admin</h3>
+          <div class="muted-box">
+            Telefon: +998 951 053 878
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="card" style="margin-top:14px">Sayt namunasi — demo.</footer>
+  </div>
+</body>
+</html>
